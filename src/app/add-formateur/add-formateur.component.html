@@ -1,0 +1,41 @@
+<div class="container">
+  <hr />
+  <h3 style="text-align:center">Ajouter un formateur</h3>
+  <hr />
+  <br>
+  <form class="form" (ngSubmit)="onSubmit(formateur)" #addFormateur="ngForm" action="addFormateur()" method="POST">
+
+    <div class="form-group">
+      <label for="identifiant">Identifiant</label> <input type="text" class="form-control" id="sujet"
+        placeholder="Entrer Identifiant" name="identifiant" required [(ngModel)]="formateur.identifiant">
+    </div>
+    <div class="form-group">
+      <label for="nom">Nom</label> <input type="text" class="form-control" id="nom" placeholder="Entrer Nom" name="nom"
+        required [(ngModel)]="formateur.nom">
+    </div>
+    <div class="form-group">
+      <label for="prenom">prenom</label> <input type="text" class="form-control" id="prenom" placeholder="Entrer Prenom"
+        name="prenom" required [(ngModel)]="formateur.prenom">
+    </div>
+    <div class="form-group">
+      <label for="Age">Age</label> <input type="text" class="form-control" id="age" placeholder="Entrer Age" name="age"
+        required [(ngModel)]="formateur.age">
+    </div>
+    <div class="form-group">
+      <label for="salaire">Salaire</label> <input type="text" class="form-control" id="salaire"
+        placeholder="Entrer Salaire" name="salaire" required [(ngModel)]="formateur.salaire">
+    </div>
+    <div class="form-group">
+      <label for="session">Session</label>
+      <select class="form-control" id="session" name="session.id" required [(ngModel)]="sessionId">
+        <option *ngFor="let session of listSession" [value]="session.id">{{session.sujet}}, spécialité: {{session?.specialite?.libelle}}</option>
+      </select>
+    </div>
+
+
+    <button type="submit" class="btn btn-outline-success">Ajouter</button>
+    <button type="button" [routerLink]="['/formateurs']" class="btn btn-outline-danger">Annuler</button>
+
+  </form>
+
+</div>

@@ -1,0 +1,44 @@
+<div style="text-align:center">
+  <br>
+  <hr/>
+  <h3>Saisir l'identifiant de la session à afficher</h3>
+  <hr/>
+
+  <form class="form"  (ngSubmit)="afficher(id)" #getSessionId="ngForm" action="getSessionId()" method="POST">
+   <label for="id"></label> 
+    <input type="number"class="form-control" id="id" placeholder="Entrer ID" name="id" required [(ngModel)]="id"  >
+  </form>
+  <br>
+  <button (click)="afficher(id)" type="submit"class="btn btn-success">OK</button>
+
+
+  <br>
+  <hr/>
+  <h3>Session : {{session.sujet}} de {{session.lieu}}</h3>
+  <br>
+</div>
+ 
+<table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date du début</th>
+        <th scope="col">Date de fin</th>
+        <th scope="col">Lieu</th>
+        <th scope="col">Sujet</th>
+        <th scope="col">Spécialité</th>
+       
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{session.id}}</td>
+      <td>{{session.date_debut | date:'dd MM yyyy'}}</td>
+      <td>{{session.date_fin | date:'dd MM yyyy'}}</td>
+      <td>{{session.lieu}}</td>
+      <td>{{session.sujet}}</td>
+      <td>{{session?.specialite?.libelle}}</td>
+  </tr>
+  </tbody>
+
+</table>

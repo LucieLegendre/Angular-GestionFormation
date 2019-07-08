@@ -1,0 +1,28 @@
+<div style="text-align: center">
+  <hr />
+  <h3>Liste des specialités</h3>
+  <hr />
+</div>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Libelle</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let specialite of data">
+    <tr>
+      <td>{{specialite.id}}</td>
+      <td>{{specialite.libelle}}</td>
+      <td>
+        <button (click)="catchSpecialite(specialite.id)" type="submit" class="btn btn-outline-success">Update</button>
+      </td>
+      <td>
+        <button (click)="deleteSpecialite(specialite.id)" type="submit" class="btn btn-outline-danger">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>

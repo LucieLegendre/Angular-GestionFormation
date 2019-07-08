@@ -1,0 +1,13 @@
+<hr />
+<h3 style="text-align:center">Modifier la spécialité : {{specialite.libelle}} </h3>
+<hr />
+<br>
+<div class="example-container">
+
+  <mat-form-field>
+    <input matInput placeholder="Libelle" name="libelle" [(ngModel)]="specialite.libelle" required>
+  </mat-form-field>
+</div>
+<button (click)="updateSpecialite(specialite)" type="submit" class="btn btn-outline-success">Modifier</button>
+
+<button type="button" [routerLink]="['/specialites']" class="btn btn-outline-danger">Annuler</button>

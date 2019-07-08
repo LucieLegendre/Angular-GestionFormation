@@ -1,0 +1,38 @@
+<div class="container">
+  <hr />
+  <h3 style="text-align:center">Ajouter une session</h3>
+  <hr />
+  <br>
+  <form class="form" (ngSubmit)="onSubmit(session)" #addSession="ngForm" action="addSession()" method="POST">
+
+    <div class="form-group">
+      <label for="date_debut">Date de début</label>
+      <input type="date" class="form-control" id="date_debut" placeholder="Entrer date de début" name="date_debut"
+        required [(ngModel)]="session.date_debut">
+
+    </div>
+    <div class="form-group">
+      <label for="date_fin">Date de fin</label> <input type="date" class="form-control" id="date_fin"
+        placeholder="Entrer date de fin" name="date_fin" required [(ngModel)]="session.date_fin">
+    </div>
+    <div class="form-group">
+      <label for="lieu">Lieu</label> <input type="text" class="form-control" id="lieu" placeholder="Entrer lieu"
+        name="lieu" required [(ngModel)]="session.lieu">
+    </div>
+    <div class="form-group">
+      <label for="sujet">Sujet</label> <input type="text" class="form-control" id="sujet" placeholder="Entrer Sujet"
+        name="sujet" required [(ngModel)]="session.sujet">
+    </div>
+    <div class="form-group">
+        <label for="specialite">Specialite</label>
+        <select class="form-control" id="specialite" name="specialite.id" required [(ngModel)]="specialiteId">
+          <option *ngFor="let specialite of listSpecialite" [value]="specialite.id">{{specialite.libelle}}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-outline-success">Ajouter</button>
+      <button type="button" [routerLink]="['/sessions']" class="btn btn-outline-danger">Annuler</button>
+
+  </form>
+
+</div>

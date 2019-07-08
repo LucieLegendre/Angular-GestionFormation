@@ -1,0 +1,49 @@
+<div style="text-align: center">
+  <hr />
+  <h3>Liste des apprenants</h3>
+  <br>
+
+  <button (click)="toggle()" id="bt" class="btn btn-outline-info">{{buttonName}}</button>
+  <hr />
+</div>
+
+<ng-container *ngIf="show">
+
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Identifiant Pôle Emploi</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Age</th>
+        <th scope="col">Indemnites</th>
+        <th scope="col">Diplomes</th>
+        <th scope="col">Session</th>
+        <th scope="col">Spécialité</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let apprenant of data">
+      <tr>
+        <td>{{apprenant.id}}</td>
+        <td>{{apprenant.idpe}}</td>
+        <td>{{apprenant.nom}}</td>
+        <td>{{apprenant.prenom}}</td>
+        <td>{{apprenant.age}}</td>
+        <td>{{apprenant.indemnite}}</td>
+        <td>{{apprenant.diplome}}</td>
+        <td>{{apprenant?.session?.sujet}}</td>
+        <td>{{apprenant?.session?.specialite?.libelle}}</td>
+        <td>
+          <button (click)="catchApprenant(apprenant.id)" type="submit" class="btn btn-outline-success">Update</button>
+        </td>
+        <td>
+          <button (click)="deleteApprenant(apprenant.id)" type="submit" class="btn btn-outline-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</ng-container>

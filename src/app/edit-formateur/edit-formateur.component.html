@@ -1,0 +1,36 @@
+<hr />
+<h3 style="text-align:center">Modifier le formateur : {{formateur.nom}} de {{formateur.prenom}}</h3>
+<hr />
+<br>
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Identifiant" name="identifiant" [(ngModel)]="formateur.identifiant" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Nom" name="nom" [(ngModel)]="formateur.nom" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Prenom" name="prenom" [(ngModel)]="formateur.prenom" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Age" name="age" [(ngModel)]="formateur.age" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Salaire" name="salaire" [(ngModel)]="formateur.salaire" required>
+  </mat-form-field>
+  
+  <mat-form-field>
+      <mat-label>Session</mat-label>
+      <mat-select [(ngModel)]="selectedSession">
+        <mat-option id="session" name="session.id" *ngFor="let session of listSession" [value]="session.id" > {{session.sujet}}, spécialité: {{session?.specialite?.libelle}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+</div>
+  <button (click)="updateFormateur(formateur)" type="submit" class="btn btn-outline-success">Modifier</button>
+  <button type="button" [routerLink]="['/formateurs']" class="btn btn-outline-danger">Annuler</button>

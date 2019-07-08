@@ -1,0 +1,49 @@
+
+<div class="container"  style="text-align:center">
+    <br>
+    <hr/>
+    <h3>Saisir l'identifiant de l'apprenant à afficher</h3>
+    <hr/>
+
+    <form class="form"  (ngSubmit)="afficher(id)" #getApprenantId="ngForm" action="getApprenantId()" method="POST">
+     <label for="id"></label> 
+      <input type="number"class="form-control" id="id" placeholder="Entrer ID" name="id" required [(ngModel)]="id"  >
+    </form>
+    <br>
+    <button (click)="afficher(id)" type="submit"class="btn btn-success">OK</button>
+    
+    <br>
+    <hr/>
+    <h3>Apprenant : {{apprenant.nom}} {{apprenant.prenom}}</h3>
+    <br>
+      
+  <table class="table">
+      <thead class="thead-light">
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Identifiant Pôle Emploi</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">Age</th>
+          <th scope="col">Indemnites</th>
+          <th scope="col">Diplomes</th>
+          <th scope="col">Session</th>
+          <th scope="col">Spécialité</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{apprenant.id}}</td>
+        <td>{{apprenant.idpe}}</td>
+        <td>{{apprenant.nom}}</td>
+        <td>{{apprenant.prenom}}</td>
+        <td>{{apprenant.age}}</td>
+        <td>{{apprenant.indemnite}}</td>
+        <td>{{apprenant.diplome}}</td>
+        <td>{{apprenant?.session?.sujet}}</td>
+        <td>{{apprenant?.specialite?.libelle}}</td>
+    </tr>
+    </tbody>
+  
+  </table>
+  </div>

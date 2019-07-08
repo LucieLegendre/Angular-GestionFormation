@@ -1,0 +1,40 @@
+
+    <hr/>
+    <h3 style="text-align:center">Modifier le compte de : {{apprenant.nom}} {{apprenant.prenom}}</h3>
+    <hr/>
+    <br>
+        <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Identifiant Pôle Emploi"  name="idpe" [(ngModel)]="apprenant.idpe" required  >
+        </mat-form-field>
+      
+      <mat-form-field>
+          <input matInput placeholder="Nom"  name="nom"  [(ngModel)]="apprenant.nom" required  >
+        </mat-form-field>
+      
+      <mat-form-field>
+          <input matInput placeholder="Prenom"  name="prenom"  [(ngModel)]="apprenant.prenom" required >
+        </mat-form-field>
+      
+      <mat-form-field>
+          <input matInput placeholder="Age"  name="age"  [(ngModel)]="apprenant.age" required >
+        </mat-form-field>
+     
+      <mat-form-field>
+          <input matInput placeholder="Indemnites"  name="indemnite"  [(ngModel)]="apprenant.indemnite" required >
+        </mat-form-field>
+      
+      <mat-form-field>
+          <input matInput placeholder="Diplomes"  name="diplome"  [(ngModel)]="apprenant.diplome" required > 
+        </mat-form-field>
+       
+        <mat-form-field>
+            <mat-label>Session</mat-label>
+            <mat-select [(ngModel)]="selectedSession">
+              <mat-option id="session" name="session.id" *ngFor="let session of listSession" [value]="session.id" > {{session.sujet}}, spécialité: {{session?.specialite?.libelle}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+          <button (click)="editApprenant(apprenant)" type="button" class="btn btn-outline-success">Modifier</button>  
+          <button type="button" [routerLink]="['/apprenants']" class="btn btn-outline-danger">Annuler</button>
+

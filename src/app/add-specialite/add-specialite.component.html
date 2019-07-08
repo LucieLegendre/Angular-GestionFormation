@@ -1,0 +1,18 @@
+<div class="container"  >
+    <hr/>
+    <h3 style="text-align:center">Ajouter une specialite</h3>
+    <hr/>
+    <br>
+    <form class="form"  (ngSubmit)="onSubmit(specialite)" #addSpecialite="ngForm" action="addSpecialite()" method="POST">
+  
+        <div class="form-group">
+            <label for="libelle">Libelle</label> 
+            <input class="form-control" id="libelle" placeholder="Entrer Libelle" name="libelle" required  [(ngModel)]="specialite.libelle">  
+          </div>
+          
+          <button type="submit" class="btn btn-outline-success">Ajouter</button>
+      <button type="button" [routerLink]="['/specialites']" class="btn btn-outline-danger">Annuler</button>
+         
+    </form>
+  
+  </div>

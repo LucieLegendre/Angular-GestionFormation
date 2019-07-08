@@ -1,0 +1,41 @@
+<div style="text-align: center">
+    <hr/>
+    <h3>Liste des formateurs</h3>
+    <hr/>
+  </div>    
+      <table class="table">
+      <thead class="thead-light">
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Identifiant</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">Age</th>
+          <th scope="col">Salaire</th>
+          <th scope="col">Session</th>
+          <th scope="col">Specialite</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let formateur of data">
+      <tr>
+        <td>{{formateur.id}}</td>
+        <td>{{formateur.identifiant}}</td>
+        <td>{{formateur.nom}}</td>
+        <td>{{formateur.prenom}}</td>
+        <td>{{formateur.age}}</td>
+        <td>{{formateur.salaire}}</td>
+        <td>{{formateur?.session?.sujet}}</td>
+        <td>{{formateur?.session?.specialite?.libelle}}</td>
+       
+        <td>
+            <button (click)="catchFormateur(formateur.id)" type="submit" class="btn btn-outline-success">Update</button>
+        </td>
+        <td>
+            <button (click)="deleteFormateur(formateur.id)" type="submit" class="btn btn-outline-danger">Delete</button>
+        </td>
+    </tr>
+    </tbody>
+  
+  </table>

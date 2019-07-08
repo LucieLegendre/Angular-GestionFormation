@@ -1,0 +1,36 @@
+<div style="text-align: center">
+  <hr />
+  <h3>Liste des sessions</h3>
+  <hr />
+</div>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date du début</th>
+      <th scope="col">Date de fin</th>
+      <th scope="col">Lieu</th>
+      <th scope="col">Sujet</th>
+      <th scope="col">Spécialite</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let session of data">
+    <tr>
+      <td>{{session.id}}</td>
+      <td>{{session.date_debut | date:'dd MM yyyy'}}</td>
+      <td>{{session.date_fin | date:'dd MM yyyy'}}</td>
+      <td>{{session.lieu}}</td>
+      <td>{{session.sujet}}</td>
+      <td>{{session?.specialite?.libelle}}</td>
+      <td>
+        <button (click)="catchSession(session.id)" type="submit" class="btn btn-outline-success">Update</button>
+      </td>
+      <td>
+        <button (click)="deleteSession(session.id)" type="submit" class="btn btn-outline-danger">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>

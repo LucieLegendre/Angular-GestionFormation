@@ -1,0 +1,35 @@
+<div style="text-align:center">
+    <br>
+    <hr/>
+    <h3>Saisir l'identifiant de la spécialité à afficher</h3>
+    <hr/>
+  
+    <form class="form"  (ngSubmit)="afficher(id)" #getSpecialiteId="ngForm" action="getSpecialiteId()" method="POST">
+     <label for="id"></label> 
+      <input type="number"class="form-control" id="id" placeholder="Entrer ID" name="id" required [(ngModel)]="id"  >
+    </form>
+    <br>
+    <button (click)="afficher(id)" type="submit"class="btn btn-success">OK</button>
+  
+  
+    <br>
+    <hr/>
+    <h3 >Specialité : {{specialite.libelle}}</h3>
+    <br>
+  </div>
+   
+  <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Libelle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{specialite.id}}</td>
+        <td>{{specialite.libelle}}</td>
+    </tr>
+    </tbody>
+  
+  </table>

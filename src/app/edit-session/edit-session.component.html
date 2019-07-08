@@ -1,0 +1,31 @@
+<hr />
+<h3 style="text-align:center">Modifier la session : {{session.sujet}} de {{session.lieu}}</h3>
+<hr />
+<br>
+<div class="example-container">
+  <mat-form-field>
+    <input matInput type="date" placeholder="Date de début" name="date_debut" [(ngModel)]="session.date_debut" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="date" placeholder="Date de fin" name="date_fin" [(ngModel)]="session.date_fin" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Lieu" name="lieu" [(ngModel)]="session.lieu" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Sujet" name="sujet" [(ngModel)]="session.sujet" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Specialite</mat-label>
+    <mat-select [(ngModel)]="selectedSpecialite">
+      <mat-option id="specialite" name="specialite.id" *ngFor="let specialite of listeSpecialite"
+        [value]="specialite.id">{{specialite.libelle}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<button (click)="editSession(session)" type="submit" class="btn btn-outline-success">Modifier</button>
+<button type="button" [routerLink]="['/sessions']" class="btn btn-outline-danger">Annuler</button>
